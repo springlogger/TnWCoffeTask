@@ -1,0 +1,95 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "name": "Настроить сервер",
+      "description": "Поднять новый сервер и настроить базовое окружение.",
+      "status": 0,
+      "date_created": "2025-02-01 12:56:28",
+      "priority": "high",
+      "tags": ["devops", "server"]
+    },
+    {
+      "id": 1,
+      "name": "Исправить баг в авторизации",
+      "description": "Ошибка при входе с использованием соцсетей.",
+      "status": 0,
+      "date_created": "2025-03-01 12:56:28",
+      "priority": "medium",
+      "tags": ["backend", "auth"]
+    },
+    {
+      "id": 2,
+      "name": "Редизайн главной страницы",
+      "description": "Обновить дизайн согласно новым макетам.",
+      "status": 1,
+      "date_created": "2025-01-01 12:56:28",
+      "priority": "low",
+      "tags": ["frontend", "ui"]
+    },
+    {
+      "id": 3,
+      "name": "Добавить систему уведомлений",
+      "description": "Настроить email и push-уведомления для пользователей.",
+      "status": 1,
+      "date_created": "2025-01-01 12:56:28",
+      "priority": "high",
+      "tags": ["backend", "notifications"]
+    },
+    {
+      "id": 4,
+      "name": "Написать документацию API",
+      "description": "Обновить документацию для разработчиков.",
+      "status": 0,
+      "date_created": "2025-03-10 14:20:15",
+      "priority": "medium",
+      "tags": ["docs", "api"]
+    },
+    {
+      "id": 5,
+      "name": "Добавить поддержку темной темы",
+      "description": "Реализовать переключение между светлой и темной темами.",
+      "status": 0,
+      "date_created": "2025-02-15 09:42:33",
+      "priority": "low",
+      "tags": ["frontend", "ui"]
+    },
+    {
+      "id": 6,
+      "name": "Разработать систему комментариев",
+      "description": "Добавить возможность комментировать статьи.",
+      "status": 1,
+      "date_created": "2025-01-20 17:35:50",
+      "priority": "medium",
+      "tags": ["backend", "comments"]
+    },
+    {
+      "id": 7,
+      "name": "Оптимизировать базу данных",
+      "description": "Улучшить производительность запросов.",
+      "status": 0,
+      "date_created": "2025-02-22 11:10:05",
+      "priority": "high",
+      "tags": ["database", "optimization"]
+    },
+    {
+      "id": 8,
+      "name": "Добавить новые способы оплаты",
+      "description": "Подключить Apple Pay и Google Pay.",
+      "status": 0,
+      "date_created": "2025-03-05 16:22:18",
+      "priority": "medium",
+      "tags": ["payments", "fintech"]
+    },
+    {
+      "id": 9,
+      "name": "Написать автотесты",
+      "description": "Покрыть основные сценарии тестами.",
+      "status": 1,
+      "date_created": "2025-02-18 08:05:55",
+      "priority": "high",
+      "tags": ["testing", "qa"]
+    }
+  ],
+  "allTags": ["backend", "comments", "testing", "qa", "payments", "fintech", "database", "optimization", "frontend", "ui", "docs", "api", "notifications", "devops", "server", "auth"]
+}

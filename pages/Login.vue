@@ -6,9 +6,6 @@ const login = ref('')
 const password = ref('')
 const isFetching = ref(false)
 
-// сделать линт
-// добаавить форму
-
 const errMsg = ref<
   | Partial<{
       msg: string
@@ -143,6 +140,7 @@ async function auth() {
         background-color: $red;
         color: black;
         border: none;
+        cursor: pointer;
         transition: background-color 0.05s linear;
 
         &:hover {

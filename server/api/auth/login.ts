@@ -5,10 +5,7 @@ export default defineEventHandler(async (event) => {
 
   const user = users.find((u) => u.credentials.username === body.login)
 
-  // && u.credentials.passphrase === body.password
-
   if (!user) {
-    // throw createError({ statusCode: 401, message: 'Неверные данные' })
     return {
       success: false,
       user,
@@ -17,7 +14,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  //   const isPasswordValid = await argon2.verify(body.password, user.credentials.passphrase)
   const isPasswordValid = body.password === user.credentials.passphrase
 
   if (!isPasswordValid) {
