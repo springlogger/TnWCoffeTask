@@ -1,0 +1,8 @@
+@use '@/assets/styles/_colors.scss' as *;
+
+body {
+  color: white;
+  background-color: #141414;
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+}
