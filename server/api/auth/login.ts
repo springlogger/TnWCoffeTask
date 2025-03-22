@@ -1,4 +1,4 @@
-import users from '~/server/config/auth.json'
+import users from '~/server/config/users.json'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -20,6 +20,6 @@ export default defineEventHandler(async (event) => {
     return { success: false, user, msg: 'Не верный пароль', errorField: 'password' }
   }
 
-  setCookie(event, 'auth_token', user.id.toString(), { path: '/' })
+  setCookie(event, 'auth_token', user.credentials.username, { path: '/' })
   return { success: true, user }
 })

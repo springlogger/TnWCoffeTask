@@ -27,6 +27,14 @@ function getPriorityColor(priority: string) {
     color: priority === 'low' ? 'green' : priority === 'medium' ? 'orange' : 'red',
   }
 }
+
+function toggleTag(tag: string) {
+  if (selectedTags.value.includes(tag)) {
+    selectedTags.value = selectedTags.value.filter((t) => t !== tag)
+  } else {
+    selectedTags.value.push(tag)
+  }
+}
 </script>
 
 <template>
@@ -53,12 +61,17 @@ function getPriorityColor(priority: string) {
           </select>
         </label>
 
-        <label>
-          Теги:
-          <select v-model="selectedTags" multiple>
-            <option v-for="tag in tasks.allTags" :key="tag" :value="tag">{{ tag }}</option>
-          </select>
-        </label>
+        <div class="tags-filter">
+          <span>Фильтр по тегам:</span>
+          <button
+            v-for="tag in tasks.allTags"
+            :key="tag"
+            :class="{ active: selectedTags.includes(tag) }"
+            @click="toggleTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        </div>
       </div>
       <table v-if="tasks.tasksList?.length" class="task-table">
         <thead>
@@ -83,7 +96,7 @@ function getPriorityColor(priority: string) {
           </tr>
         </tbody>
       </table>
-      <button @click="user.logout">Выйти</button>
+      <button class="logout__button" @click="user.logout">Выйти</button>
     </div>
   </div>
 </template>
@@ -114,6 +127,40 @@ function getPriorityColor(priority: string) {
       align-self: flex-end;
       text-align: center;
       margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ddd;
+
+        select {
+          padding: 0.5rem;
+          font-size: 14px;
+          border: 1px solid #555;
+          border-radius: 5px;
+          background-color: #222;
+          color: white;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            border-color: #ff6b6b;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 5px rgba(255, 107, 107, 0.8);
+          }
+        }
+      }
     }
 
     .task-table {
@@ -153,7 +200,7 @@ function getPriorityColor(priority: string) {
       }
     }
 
-    button {
+    .logout__button {
       margin-top: 1rem;
       padding: 0.5rem;
       font-size: large;
@@ -169,6 +216,36 @@ function getPriorityColor(priority: string) {
       &:hover {
         background-color: rgba($red, $alpha: 0.8);
       }
+    }
+  }
+}
+
+.tags-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ddd;
+  flex-wrap: wrap;
+
+  button {
+    padding: 0.3rem 0.7rem;
+    font-size: 14px;
+    border: 1px solid #ff6b6b;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #ff6b6b;
+    }
+
+    &.active {
+      background-color: #ff6b6b;
+      color: black;
     }
   }
 }
