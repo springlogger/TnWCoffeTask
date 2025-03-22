@@ -1,75 +1,70 @@
-# Nuxt Minimal Starter
+# TnWCoffeTask 
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Описание проекта  
+TnWCoffeTask — это веб-приложение на **Nuxt 3 + TypeScript**, разработанное для управления задачами.  
 
-## Setup
+---
 
-Make sure to install dependencies:
+## **Почему TypeScript?**  
+1. **Безопасность типов** – помогает предотвратить ошибки во время разработки.  
+2. **Улучшенный автокомплит** – повышает продуктивность.  
+3. **Легкость рефакторинга** – код становится более поддерживаемым.  
+4. **Строгая типизация API** – предотвращает некорректные запросы и ответы.  
 
-```bash
-# npm
+---
+
+## Развёртывание на PROD  
+```sh
+git clone <URL_репозитория>
+cd <название_проекта>
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
+## Сборка и запуск
+```sh
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+pm2 start .output/server/index.mjs --name tnw-coffee
+pm2 save
+pm2 startup
 ```
 
-Locally preview production build:
+---
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+## (Опционально) Настройка NGINX
+```sh
+server {
+    listen 80;
+    server_name example.com;
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+```sh
+sudo systemctl restart nginx
+```
+
+---
+
+## Функции
+
+- Фильтрация по статусу, приоритету и тегам
+
+- Загрузка задач из API через useFetch (Pinia store)
+
+- Динамическое изменение стилей (цвета, иконки)
+
+- Выход из аккаунта
+
+---
+
+## Улучшения
+
+- Подключение базы данных
+
+- Авторизация через JWT
+
+- Drag & Drop для сортировки
+
+- Адаптивный UI
